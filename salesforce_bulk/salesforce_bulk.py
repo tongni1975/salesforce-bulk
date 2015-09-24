@@ -188,7 +188,8 @@ class SalesforceBulk(object):
         ct = ET.SubElement(root, "contentType")
         ct.text = contentType
 
-        buf = io.StringIO()
+	buf = io.BytesIO()
+        #buf = io.StringIO()
         tree = ET.ElementTree(root)
         tree.write(buf, encoding="UTF-8")
         return buf.getvalue()
@@ -200,6 +201,7 @@ class SalesforceBulk(object):
         state.text = "Closed"
 
         buf = io.StringIO()
+	buf = io.BytesIO()
         tree = ET.ElementTree(root)
         tree.write(buf, encoding="UTF-8")
         return buf.getvalue()
@@ -212,6 +214,7 @@ class SalesforceBulk(object):
         state.text = "Aborted"
 
         buf = io.StringIO()
+	buf = io.BytesIO()
         tree = ET.ElementTree(root)
         tree.write(buf, encoding="UTF-8")
         return buf.getvalue()
